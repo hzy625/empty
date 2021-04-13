@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import gettext as _
+
 class sightings(models.Model):
     Latitude=models.FloatField(
             null=True,blank=True,
@@ -78,4 +79,25 @@ class sightings(models.Model):
             blank=True,
     )
 
+    Running=models.BooleanField(help_text=_('Is the squirrel running?'), default=False)
+    Chasing=models.BooleanField(help_text=_('Is the squirrel chasing?'), default=False)
+    Climbing=models.BooleanField(help_text=_('Is the squirrel climbing?'), default=False)
+    Eating=models.BooleanField(help_text=_('Is the squirrel eating?'), default=False)
+    Foraging=models.BooleanField(help_text=_('Is the squirrel foraging?'), default=False)
+    Other_Activities=models.CharField(
+        max_length=200, help_text='What other activites is the squirrel doing?', blank=True)
+    Kuks=models.BooleanField(help_text=_('Is the squirrel kuking?'), default=False)
+    Quaas=models.BooleanField(help_text=_('Is the squirrel quaaing?'), default=False)
+    Moans=models.BooleanField(help_text=_('Is the squirrel moaning?'), default=False)
+    Tail_flags=models.BooleanField(help_text=_('Does the squirrel have a tail flag?'), default=False)
+    Tail_twitches=models.BooleanField(help_text=_('Is the squirrel\'s tail twitching?'), default=False)
+    Approaches=models.BooleanField(help_text=_('Did the squirrel approach you?'), default=False)
+    Indifferent=models.BooleanField(help_text=_('Was the squirrel indifferent to you?'), default=False)
+    Runs_from=models.BooleanField(help_text=_('Did the squirrel run from you?'), default=False)
+
+    def __str__(self):
+        return self.Unique_Squirrel_ID
+
+    def getattrlist():
+        return [i.name for i in sightings._meta.fields]
 
